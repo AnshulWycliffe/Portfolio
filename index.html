@@ -1,11 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AnshulWycliffe · GitHub Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --muted: #8b949e;
+            --link: #58a6ff;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* TOP HEADER */
+        .header {
+            height: 56px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            font-size: 14px;
+        }
+
+        /* PROFILE NAV (GITHUB STYLE) */
+        .profile-nav {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .profile-nav .nav {
+            gap: 24px;
+        }
+
+        .profile-nav .nav-link {
+            color: var(--text);
+            padding: 12px 0;
+            font-size: 14px;
+            border-bottom: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-nav .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .profile-nav .nav-link.active {
+            color: var(--text);
+            border-bottom: 2px solid var(--accent);
+            font-weight: 600;
+        }
+
+        .header-actions a {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .header-actions a:hover {
+            color: var(--accent);
+        }
+
+
+        /* LAYOUT */
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+        }
+
+        /* SIDEBAR */
+        .sidebar img {
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .username {
+            color: var(--muted);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            margin-bottom: 16px;
+        }
+
+        .sidebar p {
+            margin-bottom: 6px;
+        }
+
+        .sidebar a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        /* MAIN */
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        /* SKILLS */
+        .skill {
+            display: inline-block;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 10px;
+            margin: 4px 4px 0 0;
+            font-size: 12px;
+        }
+
+        /* REPOS */
+        .repo {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .repo:last-child {
+            border-bottom: none;
+        }
+
+        .repo a {
+            color: var(--link);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .repo-meta {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* TECH BADGES (GitHub-style) */
+        .tech-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            margin-right: 6px;
+            margin-top: 6px;
+        }
+
+        /* PROJECT LINKS */
+        .project-links a {
+            font-size: 13px;
+            margin-right: 12px;
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+
+        .skill img {
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello World</h1>
+
+    <!-- TOP HEADER -->
+    <div class="header">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+
+            <!-- LEFT -->
+            <div class="d-flex align-items-center gap-3">
+                <span class="fw-semibold">Anshul Wycliffe</span>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="d-flex align-items-center gap-3 header-actions">
+                <a href="https://github.com/AnshulWycliffe" target="_blank" title="GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/anshulwycliffe" target="_blank" title="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://youtube.com/@anshulwycliffe" target="_blank" title="Youtube">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a href="mailto:wycliffeanshul@gmail.com" title="Email">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PROFILE NAV (GitHub-style tabs) -->
+    <div class="profile-nav">
+        <div class="container-fluid">
+            <nav class="nav">
+                <a class="nav-link active" href="#overview">
+                    <i class="bi bi-book"></i> Overview
+                </a>
+                <a class="nav-link" href="#experience">
+                    <i class="bi bi-briefcase"></i> Experience
+                </a>
+                <a class="nav-link" href="#education">
+                    <i class="bi bi-bank"></i> Education
+                </a>
+                <a class="nav-link" href="#tech">
+                    <i class="bi bi-tools"></i> Tech Stack
+                </a>
+                <a class="nav-link" href="#projects">
+                    <i class="bi bi-code-slash"></i> Top Projects
+                </a>
+                
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div class="grid">
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEGCB6RWU2chg/profile-displayphoto-scale_400_400/B4DZum7XbHHQAg-/0/1768032140532?e=1771459200&v=beta&t=Lc_3gGVwDKKUg5qCU1lmd7BwMLgupkRIgslhJRkjG_w"
+                    alt="Avatar">
+
+                <div class="name">Anshul Wycliffe</div>
+                <div class="username">@AnshulWycliffe</div>
+
+                <div class="bio">
+                    Software Developer
+                </div>
+
+                <p><i class="bi bi-geo-alt-fill"></i> Chhattisgarh, India</p>
+
+                <p><i class="bi bi-envelope-fill"></i><a href="mailto:wycliffeanshul@gmail.com">
+                        wycliffeanshul@gmail.com</a></p>
+
+                <p><i class="bi bi-github"></i> <a href="https://github.com/AnshulWycliffe">
+                        github.com/AnshulWycliffe</a></p>
+
+                <p><i class="bi bi-linkedin"></i><a href="linkedin.com/in/anshulwycliffe">
+                        linkedin.com/in/anshulwycliffe</a></p>
+
+                <p><i class="bi bi-journal-bookmark-fill"></i><a href="anshulwycliffe-web.blogspot.com/">
+                        anshulwycliffe-web.blogspot.com/</a></p>
+            </aside>
+
+            <!-- MAIN -->
+            <main>
+
+                <!-- ABOUT -->
+                <div class="section" id="#overview">
+                    <h2>Overview</h2>
+                    <p>
+                        👋 Hi, I'm Anshul Wycliffe (He/Him), a software developer focused on building robust desktop,
+                        web, and backend-driven applications with real-world impact. <br><br>
+                        💻 I specialize in Python (Flask, PySide6), JavaScript, and modern web technologies (HTML, CSS),
+                        creating scalable systems, intuitive user interfaces, and performance-oriented solutions. From
+                        full-stack web platforms to Windows desktop software, I enjoy turning complex ideas into
+                        reliable products.<br><br>
+                        🎯 My work often blends system design, database-driven architectures, and clean UI/UX to deliver
+                        efficient and user-friendly applications. I’m particularly interested in automation,
+                        offline-first software, SaaS-style products, and practical problem-solving through
+                        technology.<br><br>
+                        🚀 Always learning, building, and exploring innovative ways to make software smarter and more
+                        accessible.
+                    </p>
+                </div>
+
+                
+                <!-- EXPERIENCE -->
+                <div class="section" id="experience">
+                    <h2>Experience</h2>
+                    <strong>Software Developer — William Patholab</strong>
+                    <div class="repo-meta">Nov 2023 – Sep 2024 · Chhattisgarh</div>
+                    <ul class="mt-2">
+                        <li>Developed and maintained pathology reporting software.</li>
+                        <li>Implemented new features based on lab requirements.</li>
+                        <li>Handled backend, database, and UI workflows.</li>
+                    </ul>
+                </div>
+
+                
+                <!-- EDUCATION -->
+                <div class="section" id="education">
+                    <h2>Education</h2>
+
+                    <div class="repo">
+                        <strong>Bachelor of Computer Applications (BCA)</strong>
+                        <div class="repo-meta">
+                        St. Thomas College, Bhilai · 2024 – 2028
+                        </div>
+                        <p class="mt-1">
+                        Focus on computer programming, software development, databases,
+                        and application-oriented computer science subjects.
+                        </p>
+                    </div>
+
+                    <div class="repo">
+                        <strong>All India Senior Secondary Certificate Examination (AISSCE)</strong>
+                        <div class="repo-meta">
+                        Weidner Memorial Senior Secondary School · 2023 – 2024
+                        </div>
+                        <p class="mt-1">
+                        Physics, Chemistry, Biology with Information Practices.
+                        </p>
+                    </div>
+                    </div>
+
+                <!-- SKILLS -->
+                <div class="section" id="tech">
+                    <h2>Tech Stack</h2>
+
+                    <div class="d-flex flex-wrap gap-2">
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=python" height="16"> Python
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=flask" height="16"> Flask
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=qt" height="16"> PySide6
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=javascript" height="16"> JavaScript
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=html" height="16"> HTML
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=css" height="16"> CSS
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=cpp" height="16"> C++
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=java" height="16"> Java
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=mongodb" height="16"> MongoDB
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=mysql" height="16"> MySQL
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=sqlite" height="16"> SQLite
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=supabase" height="16"> Supabase
+                        </span>
+                    </div>
+                </div>
+
+                <div class="section" id="tech">
+                    <h2>Technologies</h2>
+
+                    <div class="d-flex flex-wrap gap-2">
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=linux" height="16"> Linux
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=vercel" height="16"> Vercel
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=netlify" height="16"> Netlify
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=github" height="16"> Github
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=git" height="16"> Github
+                        </span>
+
+                        <span class="skill">
+                            <img src="https://skillicons.dev/icons?i=vscode" height="16"> VSCode
+                        </span>
+
+
+                    </div>
+                </div>
+
+                <div class="section" id="projects">
+                    <h2>Top Projects</h2>
+
+                    <!-- CivicBio -->
+                    <div class="repo">
+                        <a href="https://github.com/AnshulWycliffe/CivicBio" target="_blank">
+                            CivicBio
+                        </a>
+                        <i class="bi bi-github ms-1"></i>
+
+                        <div class="repo-meta">
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">JSON</span>
+                            <span class="tech-badge">QR</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Supabase</span>
+                            <span class="tech-badge">RBAC</span>
+                        </div>
+
+                        <p class="mt-1">
+                            CivicBio is a role-based, QR-enabled biomedical waste management platform
+                            designed to help civic authorities monitor, regulate, and audit the
+                            complete waste lifecycle.
+                        </p>
+
+                        <div class="project-links mt-1">
+                            <a href="https://civicbio.vercel.app/" target="_blank">
+                                <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                            </a>
+                            <a href="https://youtu.be/hLuBfXSGUUY?si=JmKvL7bRCo33XFn9" target="_blank">
+                                <i class="bi bi-play-circle"></i> Demo Video
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Aksara -->
+                    <div class="repo">
+                        <a href="https://github.com/AnshulWycliffe/Aksara-Farming-Advisor" target="_blank">
+                            Aksara Farming Advisor
+                        </a>
+                        <i class="bi bi-github ms-1"></i>
+
+                        <div class="repo-meta">
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Javascript</span>
+                            <span class="tech-badge">Ngrok</span>
+                            <span class="tech-badge">AI</span>
+                            <span class="tech-badge">LLM</span>
+                            <span class="tech-badge">mistral-7b</span>
+                            <span class="tech-badge">Colab</span>
+                        </div>
+
+                        <p class="mt-1">
+                            Akṣara Farming Advisor is an AI-powered farming assistant built using Flask, llama-cpp-python, and a modern streaming chat UI. 
+                            It leverages the Aksara v1 GGUF LLM to provide structured, agriculture-focused responses for farmers and agriculture enthusiasts.
+                        </p>
+
+                        <div class="project-links mt-1">
+                            <a href="https://youtu.be/FAe8QN5Ktog?si=LvB5fzmrYoLhPyAw" target="_blank">
+                                <i class="bi bi-play-circle"></i> Demo Video
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- School Management System -->
+                    <div class="repo">
+                        <a href="https://github.com/AnshulWycliffe/School-Management-Software" target="_blank">
+                            School Management System
+                        </a>
+                        <i class="bi bi-github ms-1"></i>
+
+                        <div class="repo-meta">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">PySide6</span>
+                            <span class="tech-badge">SQLite</span>
+                            <span class="tech-badge">Docx</span>
+                        </div>
+
+                        <p class="mt-1">
+                            A comprehensive Qt-based desktop application for managing school operations including student admission, staff management, attendance tracking, marks management, and fee collection.
+                        </p>
+                    </div>
+
+                    <!-- Pathology App -->
+                    <div class="repo">
+                        <a href="https://youtu.be/n_Ysh1OYyKM?si=hLbBecyGxuJUNbRU">
+                            Pathology Software
+                        </a>
+                        <i class="bi bi-youtube ms-1"></i>
+
+                        <div class="repo-meta">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">PySide6</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">CSV</span>
+                        </div>
+
+                        <p class="mt-1">
+                            
+                        </p>
+
+                        <div class="project-links mt-1">
+                            <a href="https://youtu.be/n_Ysh1OYyKM?si=hLbBecyGxuJUNbRU" target="_blank">
+                                <i class="bi bi-play-circle"></i> Demo Video
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </main>
+
+        </div>
+    </div>
+
 </body>
+
 </html>
