@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AnshulWycliffe · GitHub Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshul Wycliffe — Software Developer</title>
 
-    <!-- Basic SEO -->
     <meta name="description"
         content="GitHub-style developer profile of Anshul Wycliffe showcasing projects, tech stack, experience, and education.">
     <meta name="keywords"
@@ -37,568 +36,1221 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://anshulwycliffe.vercel.app/">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" href="icon.ico">
 
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
-            --bg: #0d1117;
-            --surface: #161b22;
-            --border: #30363d;
-            --text: #c9d1d9;
-            --muted: #8b949e;
+            --bg: #0a0a0b;
+            --surface: #111113;
+            --surface2: #18181c;
+            --surface3: #1e1e24;
+            --border: rgba(255, 255, 255, 0.07);
+            --border2: rgba(255, 255, 255, 0.12);
+            --text: #e8e8ed;
+            --muted: #dedede;
+            --muted2: #d2d2d5;
+            --accent: #288afa;
+            --accent2: white;
+            --green: #3ecf8e;
             --link: #58a6ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: 'DM Sans', sans-serif;
             font-size: 14px;
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* TOP HEADER */
-        .header {
-            height: 56px;
-            background: var(--surface);
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent2);
+        }
+
+        /* TOPBAR */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 52px;
+            background: rgba(10, 10, 11, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 28px;
+            justify-content: space-between;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar-monogram {
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .topbar-name {
+            font-family: 'Syne', sans-serif;
             font-size: 14px;
-        }
-
-        /* PROFILE NAV (GITHUB STYLE) */
-        .profile-nav {
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .profile-nav .nav {
-            gap: 24px;
-        }
-
-        .profile-nav .nav-link {
+            font-weight: 600;
             color: var(--text);
-            padding: 12px 0;
-            font-size: 14px;
-            border-bottom: 2px solid transparent;
+        }
+
+        .topbar-right {
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .profile-nav .nav-link:hover {
-            color: var(--accent);
-        }
-
-        .profile-nav .nav-link.active {
-            color: var(--text);
-            border-bottom: 2px solid var(--accent);
-            font-weight: 600;
-        }
-
-        .header-actions a {
+        .topbar-right a {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 7px;
             color: var(--muted);
-            font-size: 16px;
+            transition: color 0.15s, background 0.15s;
         }
 
-        .header-actions a:hover {
-            color: var(--accent);
+        .topbar-right a:hover {
+            color: var(--text);
+            background: var(--surface2);
         }
 
+        .topbar-right svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* NAV TABS */
+        .navtabs {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 0 28px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+
+        .navtabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .navtabs a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 13px 16px;
+            font-size: 13px;
+            color: var(--muted);
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .navtabs a:hover {
+            color: var(--text);
+        }
+
+        .navtabs a.active {
+            color: var(--text);
+            border-bottom-color: var(--accent);
+            font-weight: 500;
+        }
+
+        .navtabs svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
 
         /* LAYOUT */
         .wrapper {
-            max-width: 1280px;
+            max-width: 1160px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 32px 28px;
         }
 
-        .grid {
+        .layout {
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 24px;
+            grid-template-columns: 256px 1fr;
+            gap: 28px;
+            align-items: start;
         }
 
         /* SIDEBAR */
-        .sidebar img {
+        .sidebar {
+            position: sticky;
+            top: 84px;
+        }
+
+        .avatar-ring {
             width: 100%;
+            aspect-ratio: 1;
             border-radius: 50%;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border2);
+            padding: 3px;
+            margin-bottom: 18px;
         }
 
-        .name {
-            font-size: 24px;
-            font-weight: 600;
-            margin-top: 12px;
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a1a2e, #2d2d4a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: -3px;
+            overflow: hidden;
         }
 
-        .username {
+        .avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .s-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 3px;
+        }
+
+        .s-handle {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
             color: var(--muted);
-            font-size: 18px;
             margin-bottom: 12px;
         }
 
-        .bio {
-            margin-bottom: 16px;
+        .s-bio {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 18px;
+            line-height: 1.5;
         }
 
-        .sidebar p {
-            margin-bottom: 6px;
+        .follow-btn {
+            width: 100%;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 0;
+            font-size: 13px;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            margin-bottom: 18px;
+            transition: background 0.15s, transform 0.1s;
         }
 
-        .sidebar a {
-            color: var(--link);
-            text-decoration: none;
+        .follow-btn:hover {
+            background: var(--link);
+            transform: translateY(-1px);
+        }
+
+        .follow-btn:active {
+            transform: translateY(0);
+        }
+
+        .s-stats {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 18px;
+            font-size: 13px;
+        }
+
+        .s-stats strong {
+            color: var(--text);
+        }
+
+        .s-stats span {
+            color: var(--muted);
+        }
+
+        .s-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .s-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .s-meta-row svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .s-meta-row a {
+            color: var(--muted);
+            transition: color 0.15s;
+        }
+
+        .s-meta-row a:hover {
+            color: var(--accent2);
+        }
+
+        .s-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 16px 0;
+        }
+
+        .s-section-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--muted2);
+            margin-bottom: 10px;
+        }
+
+        .s-skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .s-pill {
+            font-size: 11px;
+            padding: 3px 9px;
+            border-radius: 999px;
+            border: 1px solid var(--border2);
+            color: var(--muted);
+            background: var(--surface2);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .s-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent2);
         }
 
         /* MAIN */
-        .section {
+        .main {
+            min-width: 0;
+        }
+
+        /* SECTION CARD */
+        .scard {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 16px;
+            border-radius: 12px;
+            padding: 20px 22px;
             margin-bottom: 16px;
+            animation: fadeup 0.4s ease both;
         }
 
-        .section h2 {
-            font-size: 16px;
-            margin-bottom: 12px;
+        @keyframes fadeup {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* SKILLS */
-        .skill {
-            display: inline-block;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 4px 10px;
-            margin: 4px 4px 0 0;
-            font-size: 12px;
+        .scard:nth-child(1) {
+            animation-delay: 0.05s;
         }
 
-        /* REPOS */
-        .repo {
-            padding: 12px 0;
+        .scard:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .scard:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .scard:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .scard:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .scard:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* OVERVIEW */
+        .overview-text {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .overview-text strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .overview-text .hi {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* EXPERIENCE */
+        .exp-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 0;
             border-bottom: 1px solid var(--border);
         }
 
-        .repo:last-child {
+        .exp-row:last-child {
             border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .repo a {
-            color: var(--link);
-            font-weight: 600;
-            text-decoration: none;
+        .exp-icon img {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 9px;
+            background: var(--surface3);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
         }
 
-        .repo-meta {
+        .exp-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .exp-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .exp-company {
+            font-size: 13px;
+            color: var(--accent2);
+        }
+
+        .exp-period {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--muted2);
+            margin-top: 2px;
+        }
+
+        .exp-bullets {
+            margin-top: 8px;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .exp-bullets li {
             font-size: 12px;
             color: var(--muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
         }
 
-        /* TECH BADGES (GitHub-style) */
-        .tech-badge {
-            display: inline-block;
-            padding: 2px 10px;
+        .exp-bullets li::before {
+            content: '—';
+            color: var(--muted2);
+            flex-shrink: 0;
+            font-size: 11px;
+            margin-top: 1px;
+        }
+
+        /* BADGE ROWS */
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .ibadge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid var(--border2);
             border-radius: 999px;
+            padding: 5px 12px;
             font-size: 12px;
+            color: var(--text);
+            background: var(--surface2);
+            transition: border-color 0.15s, background 0.15s, transform 0.1s;
+        }
+
+        .ibadge:hover {
+            border-color: var(--accent);
+            background: var(--surface3);
+            transform: translateY(-1px);
+        }
+
+        .ibadge img {
+            width: 15px;
+            height: 15px;
+            object-fit: contain;
+        }
+
+        /* PROJECTS */
+        .proj-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .proj-item:first-child {
+            padding-top: 4px;
+        }
+
+        .proj-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .proj-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .proj-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent2);
+            transition: color 0.15s;
+        }
+
+        .proj-name:hover {
+            color: #c4aef8;
+        }
+
+        .proj-icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .tbadge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 9px;
+        }
+
+        .tbadge {
+            display: inline-block;
             border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-family: 'DM Mono', monospace;
             color: var(--muted);
-            margin-right: 6px;
+            background: var(--surface2);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .tbadge:hover {
+            border-color: var(--border2);
+            color: var(--text);
+        }
+
+        .proj-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 10px;
+        }
+
+        .proj-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .plink {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: var(--link);
+            border: 1px solid var(--border2);
+            border-radius: 6px;
+            padding: 4px 10px;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .plink:hover {
+            border-color: var(--accent);
+            background: var(--surface2);
+            color: var(--accent2);
+        }
+
+        .plink svg {
+            width: 11px;
+            height: 11px;
+            fill: currentColor;
+        }
+
+        .plink.yt svg {
+            fill: #ff4444;
+        }
+
+        .plink.yt {
+            color: #ff7070;
+        }
+
+        .plink.yt:hover {
+            border-color: #ff4444;
+            background: rgba(255, 68, 68, 0.07);
+        }
+
+        /* CONTRIB GRAPH */
+        .contrib-wrap {
+            margin-bottom: 6px;
+        }
+
+        .contrib-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contrib-count {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        .contrib-count strong {
+            font-weight: 500;
+            color: var(--green);
+        }
+
+        .contrib-grid {
+            display: grid;
+            grid-template-columns: repeat(53, 1fr);
+            gap: 2px;
+        }
+
+        .cc {
+            aspect-ratio: 1;
+            border-radius: 2px;
+        }
+
+        .contrib-legend {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--muted2);
             margin-top: 6px;
         }
 
-        /* PROJECT LINKS */
-        .project-links a {
+        .lc {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+
+        /* EDUCATION */
+        .edu-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edu-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .edu-icon img {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 9px;
+            background: var(--surface3);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .edu-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .edu-inst {
             font-size: 13px;
-            margin-right: 12px;
-            color: var(--link);
-            text-decoration: none;
+            color: var(--accent2);
         }
 
-        .project-links a:hover {
-            text-decoration: underline;
+        .edu-period {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--muted2);
+            margin-top: 2px;
         }
 
-
-        .skill img {
-            vertical-align: middle;
-            margin-right: 6px;
+        .edu-desc {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px;
         }
 
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 32px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--muted2);
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        .footer span {
+            color: var(--accent);
+        }
 
         /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .grid {
+        @media (max-width: 820px) {
+            .layout {
                 grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .wrapper {
+                padding: 20px 16px;
+            }
+
+            .topbar {
+                padding: 0 16px;
+            }
+
+            .navtabs {
+                padding: 0 16px;
             }
         }
     </style>
+
 </head>
 
 <body>
 
-    <!-- TOP HEADER -->
-    <div class="header">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-
-            <!-- LEFT -->
-            <div class="d-flex align-items-center gap-3">
-                <span class="fw-semibold">Anshul Wycliffe</span>
-            </div>
-
-            <!-- RIGHT -->
-            <div class="d-flex align-items-center gap-3 header-actions">
-                <a href="https://github.com/AnshulWycliffe" target="_blank" title="GitHub">
-                    <i class="bi bi-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/anshulwycliffe" target="_blank" title="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-                <a href="https://youtube.com/@anshulwycliffe" target="_blank" title="Youtube">
-                    <i class="bi bi-youtube"></i>
-                </a>
-                <a href="mailto:service.anshul@gmail.com" title="Email">
-                    <i class="bi bi-envelope-fill"></i>
-                </a>
-            </div>
-
+    <!-- TOPBAR -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="topbar-monogram">AW</div>
+            <span class="topbar-name">Anshul Wycliffe</span>
         </div>
-    </div>
-
-
-    <!-- PROFILE NAV (GitHub-style tabs) -->
-    <div class="profile-nav">
-        <div class="container-fluid">
-            <nav class="nav">
-                <a class="nav-link active" href="#overview">
-                    <i class="bi bi-book"></i> Overview
-                </a>
-                <a class="nav-link" href="#experience">
-                    <i class="bi bi-briefcase"></i> Experience
-                </a>
-                <a class="nav-link" href="#education">
-                    <i class="bi bi-bank"></i> Education
-                </a>
-                <a class="nav-link" href="#tech">
-                    <i class="bi bi-tools"></i> Tech Stack
-                </a>
-                <a class="nav-link" href="#projects">
-                    <i class="bi bi-code-slash"></i> Top Projects
-                </a>
-
-            </nav>
+        <div class="topbar-right">
+            <a href="https://github.com/AnshulWycliffe" target="_blank" title="GitHub">
+                <svg viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/anshulwycliffe" target="_blank" title="LinkedIn">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+            </a>
+            <a href="https://youtube.com/@anshulwycliffe" target="_blank" title="YouTube">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+            </a>
+            <a href="mailto:service.anshul@gmail.com" title="Email">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                </svg>
+            </a>
         </div>
-    </div>
+    </header>
 
+    <!-- NAV TABS -->
+    <nav class="navtabs">
+        <a href="#overview" class="active">
+            <svg viewBox="0 0 16 16">
+                <path
+                    d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75zm7.251 10.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574zM8.755 4.75l-.004 7.322a3.752 3.752 0 011.992-.572H14.5v-9h-3.495a2.25 2.25 0 00-2.25 2.25z" />
+            </svg>
+            Overview
+        </a>
+        <a href="#experience">
+            <svg viewBox="0 0 16 16">
+                <path
+                    d="M10.75 1a.75.75 0 00-.75.75v.75H6V1.75a.75.75 0 00-1.5 0V2.5H3.25A2.25 2.25 0 001 4.75v7.5A2.25 2.25 0 003.25 14.5h9.5A2.25 2.25 0 0015 12.25v-7.5A2.25 2.25 0 0012.75 2.5H11.5V1.75a.75.75 0 00-.75-.75zm2.25 3h-9.5a.75.75 0 00-.75.75v1h11v-1a.75.75 0 00-.75-.75zM2.5 7.25v5a.75.75 0 00.75.75h9.5a.75.75 0 00.75-.75v-5h-11z" />
+            </svg>
+            Experience
+        </a>
+        <a href="#education">
+            <svg viewBox="0 0 16 16">
+                <path
+                    d="M7.702 1.368C7.886.849 8.114.849 8.298 1.368l1.121 3.449 3.63.028c.549.004.775.715.334 1.044L10.48 7.88l1.083 3.46c.167.534-.423.978-.862.645L8 9.98l-2.7 2.004c-.44.333-1.03-.111-.862-.645L5.52 7.88 2.618 5.89c-.44-.33-.215-1.04.334-1.044l3.63-.028 1.12-3.449z" />
+                <path d="M7 13.5a.5.5 0 001 0V8a.5.5 0 00-1 0v5.5z" style="display:none" />
+            </svg>
+            Education
+        </a>
+        <a href="#techstack">
+            <svg viewBox="0 0 16 16">
+                <path
+                    d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 01-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.75.75 0 01-1.11-.418l-.954-3.102a1.214 1.214 0 01-.145-.125L3.754 9.816a1.214 1.214 0 01-.124-.145L.528 8.718a.75.75 0 01-.418-1.11l1.71-2.774A1.748 1.748 0 013.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0114.064 0z" />
+            </svg>
+            Tech Stack
+        </a>
+        <a href="#projects">
+            <svg viewBox="0 0 16 16">
+                <path
+                    d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8z" />
+            </svg>
+            Top Projects
+        </a>
+    </nav>
 
     <div class="wrapper">
-        <div class="grid">
+        <div class="layout">
 
             <!-- SIDEBAR -->
             <aside class="sidebar">
-                <img src="profile.jpg"
-                    alt="Avatar">
-
-                <div class="name">Anshul Wycliffe</div>
-                <div class="username">@AnshulWycliffe</div>
-
-                <div class="bio">
-                    Software Developer
+                <div class="avatar-ring">
+                    <div class="avatar-inner">
+                        <img src="profile.jpg" alt="AW" style="text-align:center;">
+                    </div>
                 </div>
-
-                <p><i class="bi bi-geo-alt-fill"></i> Chhattisgarh, India</p>
-
-                <p><i class="bi bi-envelope-fill"></i><a href="mailto:service.anshul@gmail.com">
-                        service.anshul@gmail.com</a></p>
-
-                <p><i class="bi bi-github"></i> <a href="https://github.com/AnshulWycliffe" target="_blank">
-                        github.com/AnshulWycliffe</a></p>
-
-                <p><i class="bi bi-linkedin"></i><a href="https://linkedin.com/in/anshulwycliffe" target="_blank">
-                        linkedin.com/in/anshulwycliffe</a></p>
-
-                <p><i class="bi bi-journal-bookmark-fill"></i><a href="https://anshulwycliffe-web.blogspot.com/" target="_blank">
-                        anshulwycliffe-web.blogspot.com/</a></p>
+                <div class="s-name">Anshul Wycliffe</div>
+                <div class="s-handle">@AnshulWycliffe</div>
+                <div class="s-bio">Software Developer focused on building robust desktop, web, and backend-driven
+                    applications with real-world impact.</div>
+                <button class="follow-btn">Follow</button>
+                <div class="s-stats">
+                    <div><strong>100%</strong> <span>Dreams</span></div>
+                    <div><strong>100%</strong> <span>Will</span></div>
+                </div>
+                <div class="s-meta">
+                    <div class="s-meta-row">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0L8 16.6l4.596-5.004z" />
+                        </svg>
+                        Chhattisgarh, India
+                    </div>
+                    <div class="s-meta-row">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0114.25 14H1.75A1.75 1.75 0 010 12.25v-8.5C0 2.784.784 2 1.75 2zM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809v6.442zm13-8.181v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81z" />
+                        </svg>
+                        <a href="mailto:service.anshul@gmail.com">service.anshul@gmail.com</a>
+                    </div>
+                    <div class="s-meta-row">
+                        <svg viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                        <a href="https://github.com/AnshulWycliffe" target="_blank">github.com/AnshulWycliffe</a>
+                    </div>
+                    <div class="s-meta-row">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        <a href="https://linkedin.com/in/anshulwycliffe"
+                            target="_blank">linkedin.com/in/anshulwycliffe</a>
+                    </div>
+                    <div class="s-meta-row">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+                        </svg>
+                        <a href="https://anshulwycliffe-web.blogspot.com/"
+                            target="_blank">anshulwycliffe-web.blogspot.com</a>
+                    </div>
+                </div>
+                <div class="s-divider"></div>
+                <div class="s-section-label">Quick skills</div>
+                <div class="s-skill-pills">
+                    <span class="s-pill">Python</span>
+                    <span class="s-pill">Flask</span>
+                    <span class="s-pill">PySide6</span>
+                    <span class="s-pill">JavaScript</span>
+                    <span class="s-pill">MongoDB</span>
+                    <span class="s-pill">MySQL</span>
+                    <span class="s-pill">C++</span>
+                    <span class="s-pill">Java</span>
+                    <span class="s-pill">Supabase</span>
+                    <span class="s-pill">SQLite</span>
+                    <span class="s-pill">Linux</span>
+                    <span class="s-pill">Git</span>
+                </div>
             </aside>
 
             <!-- MAIN -->
-            <main>
+            <main class="main">
 
-                <!-- ABOUT -->
-                <div class="section" id="#overview">
-                    <h2>Overview</h2>
-                    <p>
-                        👋 Hi, I'm Anshul Wycliffe (He/Him), a software developer focused on building robust desktop,
-                        web, and backend-driven applications with real-world impact. <br><br>
-                        💻 I specialize in Python (Flask, PySide6), JavaScript, and modern web technologies (HTML, CSS),
-                        creating scalable systems, intuitive user interfaces, and performance-oriented solutions. From
-                        full-stack web platforms to Windows desktop software, I enjoy turning complex ideas into
-                        reliable products.<br><br>
-                        🎯 My work often blends system design, database-driven architectures, and clean UI/UX to deliver
-                        efficient and user-friendly applications. I’m particularly interested in automation,
-                        offline-first software, SaaS-style products, and practical problem-solving through
-                        technology.<br><br>
-                        🚀 Always learning, building, and exploring innovative ways to make software smarter and more
-                        accessible.
-                    </p>
-                </div>
-
+                <!-- OVERVIEW -->
+                <section id="overview">
+                    <div class="scard">
+                        <div class="card-title">Overview</div>
+                        <p class="overview-text">
+                            <span class="hi">Hi, I'm Anshul Wycliffe (He/Him)</span> — a software developer focused on
+                            building robust desktop, web, and backend-driven applications with real-world
+                            impact.<br><br>
+                            I specialize in <strong>Python (Flask, PySide6)</strong>, <strong>JavaScript</strong>, and
+                            modern web technologies, creating scalable systems, intuitive user interfaces, and
+                            performance-oriented solutions. From full-stack web platforms to Windows desktop software, I
+                            enjoy turning complex ideas into reliable products.<br><br>
+                            My work often blends <strong>system design</strong>, database-driven architectures, and
+                            clean UI/UX to deliver efficient and user-friendly applications. I'm particularly interested
+                            in automation, offline-first software, SaaS-style products, and practical problem-solving
+                            through technology.<br><br>
+                            Always learning, building, and exploring innovative ways to make software smarter and more
+                            accessible.
+                        </p>
+                    </div>
+                </section>
 
                 <!-- EXPERIENCE -->
-                <div class="section" id="experience">
-                    <h2>Experience</h2>
-                    <strong>Software Developer — William Patholab</strong>
-                    <div class="repo-meta">Nov 2023 – Sep 2024 · Chhattisgarh</div>
-                    <ul class="mt-2">
-                        <li>Developed and maintained pathology reporting software.</li>
-                        <li>Implemented new features based on lab requirements.</li>
-                        <li>Handled backend, database, and UI workflows.</li>
-                    </ul>
-                </div>
-
+                <section id="experience">
+                    <div class="scard">
+                        <div class="card-title">Experience</div>
+                        <div class="exp-row">
+                            <div class="exp-icon"><img src="william_path.jpg" alt=""></div>
+                            <div class="exp-info">
+                                <div class="exp-title">Software Developer</div>
+                                <div class="exp-company">William Patholab</div>
+                                <div class="exp-period">Nov 2023 – Sep 2024 · 11 mos · Chhattisgarh, India</div>
+                                <ul class="exp-bullets">
+                                    <li>Developed and maintained pathology reporting software.</li>
+                                    <li>Implemented new features based on lab requirements.</li>
+                                    <li>Handled backend, database, and UI workflows.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- EDUCATION -->
-                <div class="section" id="education">
-                    <h2>Education</h2>
-
-                    <div class="repo">
-                        <strong>Bachelor of Computer Applications (BCA)</strong>
-                        <div class="repo-meta">
-                            St. Thomas College, Bhilai · 2024 – 2028
+                <section id="education">
+                    <div class="scard">
+                        <div class="card-title">Education</div>
+                        <div class="edu-row">
+                            <div class="edu-icon">
+                                <img src="college.png" alt="">
+                            </div>
+                            <div>
+                                <div class="edu-title">Bachelor of Computer Applications (BCA)</div>
+                                <div class="edu-inst">St. Thomas College, Bhilai</div>
+                                <div class="edu-period">2024 – 2028</div>
+                                <div class="edu-desc">Computer programming, software development, databases, and
+                                    application-oriented computer science subjects.</div>
+                            </div>
                         </div>
-                        <p class="mt-1">
-                            Focus on computer programming, software development, databases,
-                            and application-oriented computer science subjects.
-                        </p>
-                    </div>
-
-                    <div class="repo">
-                        <strong>All India Senior Secondary Certificate Examination (AISSCE)</strong>
-                        <div class="repo-meta">
-                            Weidner Memorial Senior Secondary School · 2023 – 2024
+                        <div class="edu-row">
+                            <div class="edu-icon">
+                                <img src="school.png" alt="">
+                            </div>
+                            <div>
+                                <div class="edu-title">All India Senior Secondary Certificate Examination (AISSCE)</div>
+                                <div class="edu-inst">Weidner Memorial Senior Secondary School</div>
+                                <div class="edu-period">2023 – 2024</div>
+                                <div class="edu-desc">Physics, Chemistry, Biology with Information Practices.</div>
+                            </div>
                         </div>
-                        <p class="mt-1">
-                            Physics, Chemistry, Biology with Information Practices.
-                        </p>
                     </div>
-                </div>
+                </section>
 
-                <!-- SKILLS -->
-                <div class="section" id="tech">
-                    <h2>Tech Stack</h2>
-
-                    <div class="d-flex flex-wrap gap-2">
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=python" height="16"> Python
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=flask" height="16"> Flask
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=qt" height="16"> PySide6
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=javascript" height="16"> JavaScript
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=html" height="16"> HTML
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=css" height="16"> CSS
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=cpp" height="16"> C++
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=java" height="16"> Java
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=mongodb" height="16"> MongoDB
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=mysql" height="16"> MySQL
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=sqlite" height="16"> SQLite
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=supabase" height="16"> Supabase
-                        </span>
-                    </div>
-                </div>
-
-                <div class="section" id="tech">
-                    <h2>Technologies</h2>
-
-                    <div class="d-flex flex-wrap gap-2">
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=linux" height="16"> Linux
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=vercel" height="16"> Vercel
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=netlify" height="16"> Netlify
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=github" height="16"> Github
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=git" height="16"> Git
-                        </span>
-
-                        <span class="skill">
-                            <img src="https://skillicons.dev/icons?i=vscode" height="16"> VSCode
-                        </span>
-
-
-                    </div>
-                </div>
-
-                <div class="section" id="projects">
-                    <h2>Top Projects</h2>
-
-                    <!-- CivicBio -->
-                    <div class="repo">
-                        <a href="https://github.com/AnshulWycliffe/CivicBio" target="_blank">
-                            CivicBio
-                        </a>
-                        <i class="bi bi-github ms-1"></i>
-
-                        <div class="repo-meta">
-                            <span class="tech-badge">Flask</span>
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">JSON</span>
-                            <span class="tech-badge">QR</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">Supabase</span>
-                            <span class="tech-badge">RBAC</span>
-                        </div>
-
-                        <p class="mt-1">
-                            CivicBio is a role-based, QR-enabled biomedical waste management platform
-                            designed to help civic authorities monitor, regulate, and audit the
-                            complete waste lifecycle.
-                        </p>
-
-                        <div class="project-links mt-1">
-                            <a href="https://civicbio.vercel.app/" target="_blank">
-                                <i class="bi bi-box-arrow-up-right"></i> Live Demo
-                            </a>
-                            <a href="https://youtu.be/hLuBfXSGUUY?si=JmKvL7bRCo33XFn9" target="_blank">
-                                <i class="bi bi-play-circle"></i> Demo Video
-                            </a>
+                <!-- TECH STACK -->
+                <section id="techstack">
+                    <div class="scard">
+                        <div class="card-title">Tech Stack</div>
+                        <div class="badge-row">
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=python" height="16">Python</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=flask" height="16">Flask</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=qt" height="16">PySide6</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=javascript" height="16">JavaScript</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=html" height="16">HTML</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=css" height="16">CSS</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=cpp" height="16">C++</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=java" height="16">Java</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=mongodb" height="16">MongoDB</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=mysql" height="16">MySQL</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=sqlite" height="16">SQLite</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=supabase" height="16">Supabase</span>
                         </div>
                     </div>
 
-                    <!-- Aksara -->
-                    <div class="repo">
-                        <a href="https://github.com/AnshulWycliffe/Aksara-Farming-Advisor" target="_blank">
-                            Aksara Farming Advisor
-                        </a>
-                        <i class="bi bi-github ms-1"></i>
-
-                        <div class="repo-meta">
-                            <span class="tech-badge">Flask</span>
-                            <span class="tech-badge">Javascript</span>
-                            <span class="tech-badge">Ngrok</span>
-                            <span class="tech-badge">AI</span>
-                            <span class="tech-badge">LLM</span>
-                            <span class="tech-badge">mistral-7b</span>
-                            <span class="tech-badge">Colab</span>
-                        </div>
-
-                        <p class="mt-1">
-                            Akṣara Farming Advisor is an AI-powered farming assistant built using Flask,
-                            llama-cpp-python, and a modern streaming chat UI.
-                            It leverages the Aksara v1 GGUF LLM to provide structured, agriculture-focused responses for
-                            farmers and agriculture enthusiasts.
-                        </p>
-
-                        <div class="project-links mt-1">
-                            <a href="https://youtu.be/FAe8QN5Ktog?si=LvB5fzmrYoLhPyAw" target="_blank">
-                                <i class="bi bi-play-circle"></i> Demo Video
-                            </a>
+                    <div class="scard">
+                        <div class="card-title">Technologies</div>
+                        <div class="badge-row">
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=linux" height="16">Linux</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=vercel" height="16">Vercel</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=netlify" height="16">Netlify</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=github" height="16">GitHub</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=git" height="16">Git</span>
+                            <span class="ibadge"><img src="https://skillicons.dev/icons?i=vscode" height="16">VSCode</span>
                         </div>
                     </div>
+                </section>
 
-                    <!-- School Management System -->
-                    <div class="repo">
-                        <a href="https://github.com/AnshulWycliffe/School-Management-Software" target="_blank">
-                            School Management System
-                        </a>
-                        <i class="bi bi-github ms-1"></i>
+                <!-- PROJECTS -->
+                <section id="projects">
+                    <div class="scard">
+                        <div class="card-title">Top Projects</div>
 
-                        <div class="repo-meta">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">PySide6</span>
-                            <span class="tech-badge">SQLite</span>
-                            <span class="tech-badge">Docx</span>
+                        <!-- CivicBio -->
+                        <div class="proj-item">
+                            <div class="proj-header">
+                                <a class="proj-name" href="https://github.com/AnshulWycliffe/CivicBio"
+                                    target="_blank">CivicBio</a>
+                                <svg class="proj-icon" viewBox="0 0 16 16" style="fill:#7a7a8a">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                            </div>
+                            <div class="tbadge-row">
+                                <span class="tbadge">Flask</span><span class="tbadge">JavaScript</span><span
+                                    class="tbadge">JSON</span><span class="tbadge">QR</span><span
+                                    class="tbadge">MongoDB</span><span class="tbadge">Supabase</span><span
+                                    class="tbadge">RBAC</span>
+                            </div>
+                            <div class="proj-desc">Role-based, QR-enabled biomedical waste management platform designed
+                                to help civic authorities monitor, regulate, and audit the complete waste lifecycle.
+                            </div>
+                            <div class="proj-links">
+                                <a class="plink" href="https://civicbio.vercel.app/" target="_blank">
+                                    <svg viewBox="0 0 16 16">
+                                        <path
+                                            d="M8.75 3a.75.75 0 000 1.5h2.19L5.22 10.22a.75.75 0 101.06 1.06L12 5.56v2.19a.75.75 0 001.5 0v-4a.75.75 0 00-.75-.75h-4z" />
+                                        <path
+                                            d="M2.5 4.25c0-.414.336-.75.75-.75H6a.75.75 0 000-1.5H3.25A2.25 2.25 0 001 4.25v8.5A2.25 2.25 0 003.25 15h8.5A2.25 2.25 0 0014 12.75V10a.75.75 0 00-1.5 0v2.75a.75.75 0 01-.75.75h-8.5a.75.75 0 01-.75-.75v-8.5z" />
+                                    </svg>
+                                    Live Demo
+                                </a>
+                                <a class="plink yt" href="https://youtu.be/hLuBfXSGUUY?si=JmKvL7bRCo33XFn9"
+                                    target="_blank">
+                                    <svg viewBox="0 0 16 16">
+                                        <path
+                                            d="M15.8 4.8s-.2-1.3-.7-1.8c-.7-.7-1.4-.7-1.8-.8C11.1 2 8 2 8 2s-3.1 0-5.3.2c-.4.1-1.1.1-1.8.8-.5.5-.7 1.8-.7 1.8S0 6.2 0 7.6v1.3c0 1.4.2 2.8.2 2.8s.2 1.3.7 1.8c.7.7 1.6.7 2 .8C4.2 14 8 14 8 14s3.1 0 5.3-.3c.4-.1 1.1-.1 1.8-.8.5-.5.7-1.8.7-1.8s.2-1.4.2-2.8V7.6c0-1.4-.2-2.8-.2-2.8zM6.4 9.8V5.6l4.8 2.1-4.8 2.1z" />
+                                    </svg>
+                                    Demo Video
+                                </a>
+                            </div>
                         </div>
 
-                        <p class="mt-1">
-                            A comprehensive Qt-based desktop application for managing school operations including
-                            student admission, staff management, attendance tracking, marks management, and fee
-                            collection.
-                        </p>
+                        <!-- Aksara -->
+                        <div class="proj-item">
+                            <div class="proj-header">
+                                <a class="proj-name" href="https://github.com/AnshulWycliffe/Aksara-Farming-Advisor"
+                                    target="_blank">Aksara Farming Advisor</a>
+                                <svg class="proj-icon" viewBox="0 0 16 16" style="fill:#7a7a8a">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                            </div>
+                            <div class="tbadge-row">
+                                <span class="tbadge">Flask</span><span class="tbadge">JavaScript</span><span
+                                    class="tbadge">Ngrok</span><span class="tbadge">AI</span><span
+                                    class="tbadge">LLM</span><span class="tbadge">mistral-7b</span><span
+                                    class="tbadge">Colab</span>
+                            </div>
+                            <div class="proj-desc">AI-powered farming assistant using Flask, llama-cpp-python, and a
+                                modern streaming chat UI. Leverages the Aksara v1 GGUF LLM for structured,
+                                agriculture-focused responses for farmers and enthusiasts.</div>
+                            <div class="proj-links">
+                                <a class="plink yt" href="https://youtu.be/FAe8QN5Ktog?si=LvB5fzmrYoLhPyAw"
+                                    target="_blank">
+                                    <svg viewBox="0 0 16 16">
+                                        <path
+                                            d="M15.8 4.8s-.2-1.3-.7-1.8c-.7-.7-1.4-.7-1.8-.8C11.1 2 8 2 8 2s-3.1 0-5.3.2c-.4.1-1.1.1-1.8.8-.5.5-.7 1.8-.7 1.8S0 6.2 0 7.6v1.3c0 1.4.2 2.8.2 2.8s.2 1.3.7 1.8c.7.7 1.6.7 2 .8C4.2 14 8 14 8 14s3.1 0 5.3-.3c.4-.1 1.1-.1 1.8-.8.5-.5.7-1.8.7-1.8s.2-1.4.2-2.8V7.6c0-1.4-.2-2.8-.2-2.8zM6.4 9.8V5.6l4.8 2.1-4.8 2.1z" />
+                                    </svg>
+                                    Demo Video
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- School Management -->
+                        <div class="proj-item">
+                            <div class="proj-header">
+                                <a class="proj-name" href="https://github.com/AnshulWycliffe/School-Management-Software"
+                                    target="_blank">School Management System</a>
+                                <svg class="proj-icon" viewBox="0 0 16 16" style="fill:#7a7a8a">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                            </div>
+                            <div class="tbadge-row">
+                                <span class="tbadge">Python</span><span class="tbadge">PySide6</span><span
+                                    class="tbadge">SQLite</span><span class="tbadge">Docx</span>
+                            </div>
+                            <div class="proj-desc">Comprehensive Qt-based desktop application for managing school
+                                operations — student admission, staff management, attendance tracking, marks management,
+                                and fee collection.</div>
+                            <div class="proj-links"></div>
+                        </div>
+
+                        <!-- Pathology -->
+                        <div class="proj-item">
+                            <div class="proj-header">
+                                <a class="proj-name" href="https://youtu.be/n_Ysh1OYyKM?si=hLbBecyGxuJUNbRU"
+                                    target="_blank">Pathology Software</a>
+                                <svg class="proj-icon" viewBox="0 0 16 16" style="fill:#ff4444">
+                                    <path
+                                        d="M15.8 4.8s-.2-1.3-.7-1.8c-.7-.7-1.4-.7-1.8-.8C11.1 2 8 2 8 2s-3.1 0-5.3.2c-.4.1-1.1.1-1.8.8-.5.5-.7 1.8-.7 1.8S0 6.2 0 7.6v1.3c0 1.4.2 2.8.2 2.8s.2 1.3.7 1.8c.7.7 1.6.7 2 .8C4.2 14 8 14 8 14s3.1 0 5.3-.3c.4-.1 1.1-.1 1.8-.8.5-.5.7-1.8.7-1.8s.2-1.4.2-2.8V7.6c0-1.4-.2-2.8-.2-2.8zM6.4 9.8V5.6l4.8 2.1-4.8 2.1z" />
+                                </svg>
+                            </div>
+                            <div class="tbadge-row">
+                                <span class="tbadge">Python</span><span class="tbadge">PySide6</span><span
+                                    class="tbadge">MySQL</span><span class="tbadge">Pandas</span><span
+                                    class="tbadge">CSV</span>
+                            </div>
+                            <div class="proj-desc">Pathology reporting desktop software built for William Patholab. Full
+                                report lifecycle with MySQL backend, Pandas processing, and CSV export capabilities.
+                            </div>
+                            <div class="proj-links">
+                                <a class="plink yt" href="https://youtu.be/n_Ysh1OYyKM?si=hLbBecyGxuJUNbRU"
+                                    target="_blank">
+                                    <svg viewBox="0 0 16 16">
+                                        <path
+                                            d="M15.8 4.8s-.2-1.3-.7-1.8c-.7-.7-1.4-.7-1.8-.8C11.1 2 8 2 8 2s-3.1 0-5.3.2c-.4.1-1.1.1-1.8.8-.5.5-.7 1.8-.7 1.8S0 6.2 0 7.6v1.3c0 1.4.2 2.8.2 2.8s.2 1.3.7 1.8c.7.7 1.6.7 2 .8C4.2 14 8 14 8 14s3.1 0 5.3-.3c.4-.1 1.1-.1 1.8-.8.5-.5.7-1.8.7-1.8s.2-1.4.2-2.8V7.6c0-1.4-.2-2.8-.2-2.8zM6.4 9.8V5.6l4.8 2.1-4.8 2.1z" />
+                                    </svg>
+                                    Demo Video
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
-
-                    <!-- Pathology App -->
-                    <div class="repo">
-                        <a href="https://youtu.be/n_Ysh1OYyKM?si=hLbBecyGxuJUNbRU">
-                            Pathology Software
-                        </a>
-                        <i class="bi bi-youtube ms-1"></i>
-
-                        <div class="repo-meta">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">PySide6</span>
-                            <span class="tech-badge">MySQL</span>
-                            <span class="tech-badge">Pandas</span>
-                            <span class="tech-badge">CSV</span>
-                        </div>
-
-                        <p class="mt-1">
-
-                        </p>
-
-                        <div class="project-links mt-1">
-                            <a href="https://youtu.be/n_Ysh1OYyKM?si=hLbBecyGxuJUNbRU" target="_blank">
-                                <i class="bi bi-play-circle"></i> Demo Video
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-
+                </section>
 
             </main>
-
         </div>
     </div>
+
+    <footer class="footer">
+        built with <span>♥</span> by Anshul Wycliffe &nbsp;·&nbsp; <a href="https://github.com/AnshulWycliffe"
+            target="_blank" style="color:var(--muted2)">@AnshulWycliffe</a>
+    </footer>
+
+    <script>
+        // Active nav on scroll
+        const sections = ['overview', 'experience', 'education', 'techstack', 'projects'];
+        const links = document.querySelectorAll('.navtabs a');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    links.forEach(l => l.classList.remove('active'));
+                    const match = document.querySelector(`.navtabs a[href="#${e.target.id}"]`);
+                    if (match) match.classList.add('active');
+                }
+            });
+        }, { threshold: 0.3 });
+        sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    </script>
 
 </body>
 
